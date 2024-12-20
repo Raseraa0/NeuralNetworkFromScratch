@@ -1,6 +1,4 @@
-
-
-#include "label_manipulator.h"
+#include "Manipulator/label_manipulator.h"
 #include "utils.h"
 #include <iostream>
 

@@ -6,12 +6,14 @@ file(
   GLOB
   SOURCES
   "src/*.cpp"
+  "src/Manipulator/*.cpp"
 )
 
 file(
   GLOB
   HEADERS
   "include/*.h"
+  "include/Manipulator/*.h"
 )
 set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 

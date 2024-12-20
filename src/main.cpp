@@ -1,5 +1,5 @@
-#include "image_manipulator.h"
-#include "label_manipulator.h"
+#include "Manipulator/image_manipulator.h"
+#include "Manipulator/label_manipulator.h"
 #include <iostream>
 
 int main() {

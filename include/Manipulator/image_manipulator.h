@@ -1,7 +1,7 @@
 #ifndef IMAGE_MANIPULATOR_H
 #define IMAGE_MANIPULATOR_H
 
-#include "data_manipulator.h"
+#include "Manipulator/data_manipulator.h"
 #include <vector>
 
 class image_manip : public data_manip {

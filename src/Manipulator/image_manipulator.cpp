@@ -1,5 +1,4 @@
-
-#include "image_manipulator.h"
+#include "Manipulator/image_manipulator.h"
 #include "utils.h"
 #include <iostream>
 

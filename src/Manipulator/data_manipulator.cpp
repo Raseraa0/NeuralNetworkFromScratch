@@ -1,4 +1,4 @@
-#include "data_manipulator.h"
+#include "Manipulator/data_manipulator.h"
 #include <iostream>
 
 data_manip::data_manip(std::string path) {
