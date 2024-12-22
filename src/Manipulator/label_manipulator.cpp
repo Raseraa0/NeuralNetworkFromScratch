@@ -1,8 +1,9 @@
 #include "Manipulator/label_manipulator.h"
+#include "exception.h"
 #include "utils.h"
 #include <iostream>
 
-label_manip::label_manip(std::string path) : data_manip(path) {
+label_manip::label_manip(std::string p) : data_manip(p) {
 
   initialize_parameters();
   current_data++;
@@ -25,9 +26,10 @@ void label_manip::initialize_parameters() {
 
 int label_manip::next_label(int i) {
   if (i != current_data + 1) {
-    std::cerr << "Error while parsing, index are not corresponding"
-              << std::endl;
-    exit(0);
+    std::string mess = "Error while parsing the file, index " +
+                       std::to_string(i) + " and index " +
+                       std::to_string(current_data) + " are not corresponding";
+    throw err::io_exception(mess, this->path);
   }
   return next_label();
 }

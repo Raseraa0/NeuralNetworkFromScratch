@@ -1,8 +1,9 @@
 #include "Manipulator/image_manipulator.h"
+#include "exception.h"
 #include "utils.h"
 #include <iostream>
 
-image_manip::image_manip(std::string path) : data_manip(path) {
+image_manip::image_manip(std::string p) : data_manip(p) {
   initialize_parameters();
   current_data++;
 }
@@ -34,7 +35,7 @@ void image_manip::print_image(int index) {
   std::clog << "Warning this function break everything, just use it a the "
                "start of the programe for showing a specified image."
             << std::endl;
-  for (int k = 0; k < index ; k++) {
+  for (int k = 0; k < index; k++) {
     next_image();
   }
   std::cout << "P2\n" << n_cols << " " << n_rows << " 255" << std::endl;
@@ -49,9 +50,10 @@ void image_manip::print_image(int index) {
 
 std::vector<int> image_manip::next_image(int i) {
   if (i != current_data + 1) {
-    std::cerr << "Error while parsing, index are not corresponding"
-              << std::endl;
-    exit(0);
+    std::string mess = "Error while parsing the file, index " +
+                       std::to_string(i) + " and index " +
+                       std::to_string(current_data) + " are not corresponding";
+    throw err::io_exception(mess, this->path);
   }
   return next_image();
 }

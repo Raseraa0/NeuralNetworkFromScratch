@@ -23,12 +23,15 @@ int main() {
   data.push_back(third_line);
 
   mat matrix(data);
+  mat vector(second_line);
 
   std::clog << matrix << std::endl;
 
-  mat vector(second_line);
+  matrix.at(2, 2) = 100;
 
-  std::clog << vector << std::endl;
+  matrix += vector;
+
+  std::clog << matrix << std::endl;
 
   return 0;
 }

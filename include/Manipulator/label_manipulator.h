@@ -11,7 +11,7 @@ class label_manip : public data_manip {
 
 public:
   /* Constructor with juste the path of the target file */
-  label_manip(std::string path);
+  label_manip(std::string p);
 
   /*
   Print information about the file

@@ -11,7 +11,7 @@ class image_manip : public data_manip {
 
 public:
   /* Constructor with juste the path of the target file */
-  image_manip(std::string path);
+  image_manip(std::string p);
 
   /*
   Print information about the file

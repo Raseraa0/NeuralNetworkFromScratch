@@ -37,6 +37,30 @@ public:
   /* Getter for n_cols */
   int get_n_cols() const;
 
+  /* Return the corresponding element in the matrix */
+  double at(int i, int j) const;
+
+  /* Return pointer to set the corresponding element in the matrix */
+  double& at(int i, int j);
+
+  /* Return the matrix transposed */
+  mat transpose() const;
+
+
+  void check_dimension(const mat& other) const ;
+
+  /* Return the dot product with the given matrix */
+  double dot(const mat& other) const;
+
+  /* Overload of the - unary operator */
+  mat operator-() const;
+
+  /* Overload of the += operator */
+  mat& operator+=(const mat& other);
+
+  /* Overload of the -= operator */
+  mat& operator-=(const mat& other);
+
 private:
   /* All elements of the matrix */
   vector<vector<double>> data;

@@ -1,16 +1,12 @@
 #include "Manipulator/data_manipulator.h"
+#include "exception.h"
 #include <iostream>
 
-data_manip::data_manip(std::string path) {
+data_manip::data_manip(std::string p) : path(p) {
   file = std::ifstream(path, std::ios::binary);
   if (!file.is_open()) {
-    std::cerr << "Error while attempting opening the file : " << path
-              << std::endl;
-    exit(1);
+    throw err::io_exception("Error while attempting opening a file", path);
   }
-
 }
 
 data_manip::~data_manip() = default;
-
-

@@ -12,7 +12,7 @@ class data_manip {
 
 public:
   /* Constructor with juste the path of the target file */
-  data_manip(std::string path);
+  data_manip(std::string p);
 
   /* Virtual destructor */
   virtual ~data_manip();
@@ -26,6 +26,8 @@ public:
 protected:
   /* Opened stream for reading the binay file */
   std::ifstream file;
+
+  std::string path;
 
   /* Magic number, to be sur we are on the right file */
   int magic_number;
