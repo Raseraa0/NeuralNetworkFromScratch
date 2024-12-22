@@ -32,10 +32,10 @@ public:
   const vector<double>* end() const;
 
   /* Getter for n_rows */
-  int get_n_rows() const;
+  size_t get_n_rows() const;
 
   /* Getter for n_cols */
-  int get_n_cols() const;
+  size_t get_n_cols() const;
 
   /* Return the corresponding element in the matrix */
   double at(int i, int j) const;
@@ -46,8 +46,7 @@ public:
   /* Return the matrix transposed */
   mat transpose() const;
 
-
-  void check_dimension(const mat& other) const ;
+  void check_dimension(const mat& other) const;
 
   /* Return the dot product with the given matrix */
   double dot(const mat& other) const;
@@ -85,4 +84,31 @@ inline std::ostream& operator<<(std::ostream& out, const mat& m) {
   return out;
 }
 
+inline mat operator+(const mat& m, const mat& n) {
+  m.check_dimension(n);
+  vector<vector<double>> res;
+  for (size_t i = 0; i < m.get_n_rows(); i++) {
+    vector<double> line;
+    for (size_t j = 0; j < m.get_n_cols(); j++) {
+      line.push_back(m.at(i, j) + n.at(i, j));
+    }
+    res.push_back(line);
+  }
+  return res;
+
+
+}
+
+inline mat operator-(const mat& m, const mat& n) {
+  m.check_dimension(n);
+  vector<vector<double>> res;
+  for (size_t i = 0; i < m.get_n_rows(); i++) {
+    vector<double> line;
+    for (size_t j = 0; j < m.get_n_cols(); j++) {
+      line.push_back(m.at(i, j) - n.at(i, j));
+    }
+    res.push_back(line);
+  }
+  return res;
+}
 #endif // !MAT_H

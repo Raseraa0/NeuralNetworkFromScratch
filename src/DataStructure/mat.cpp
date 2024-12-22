@@ -23,9 +23,9 @@ mat::mat(const vector<double>& d) {
 const vector<double>* mat::begin() const { return &data.front(); }
 const vector<double>* mat::end() const { return &data.back() + 1; }
 
-int mat::get_n_rows() const { return n_rows; }
+size_t mat::get_n_rows() const { return n_rows; }
 
-int mat::get_n_cols() const { return n_cols; }
+size_t mat::get_n_cols() const { return n_cols; }
 
 double mat::at(int i, int j) const { return data.at(i).at(j); }
 
