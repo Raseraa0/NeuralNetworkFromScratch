@@ -5,16 +5,22 @@ project(NeuralNetworkFromScratch)
 file(
   GLOB
   SOURCES
-  "src/*.cpp"
+  "src/utils.cpp"
   "src/Manipulator/*.cpp"
+  "src/DataStructure/*.cpp"
 )
 
 file(
   GLOB
   HEADERS
-  "include/*.h"
+  "include/utils.h"
   "include/Manipulator/*.h"
+  "include/DataStructure/*.h"
 )
+
+set(MAIN "src/main.cpp")
+set(TEST "src/test.cpp")
+
 set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 
 add_compile_options(-O3)
@@ -33,8 +39,18 @@ add_compile_options(-Wunused-variable)
 
 add_executable(
   neuralNetwork
+  ${MAIN}
   ${SOURCES}
   ${HEADERS}
 )
 
 target_include_directories(neuralNetwork PRIVATE include)
+
+add_executable(
+  test
+  ${TEST}
+  ${SOURCES}
+  ${HEADERS}
+)
+
+target_include_directories(test PRIVATE include)
