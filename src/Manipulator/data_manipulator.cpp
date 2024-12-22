@@ -13,5 +13,4 @@ data_manip::data_manip(std::string path) {
 
 data_manip::~data_manip() = default;
 
-void data_manip::initialize_parameters() {};
 
