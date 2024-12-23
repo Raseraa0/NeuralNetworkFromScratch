@@ -22,13 +22,13 @@ public:
   Useful for iterate throw the object
   return a pointer to the first element
   */
-  const vector<double>* begin() const;
+  const vector<vector<double>>::const_iterator begin() const;
 
   /*
   Useful for iterate throw the object
   return a pointer just after the last element
   */
-  const vector<double>* end() const;
+  const vector<vector<double>>::const_iterator end() const;
 
   /* Getter for n_rows */
   size_t get_n_rows() const;
@@ -37,10 +37,10 @@ public:
   size_t get_n_cols() const;
 
   /* Return the corresponding element in the matrix */
-  double at(int i, int j) const;
+  double at(size_t i, size_t j) const;
 
   /* Return pointer to set the corresponding element in the matrix */
-  double& at(int i, int j);
+  double& at(size_t i, size_t j);
 
   /* Return the matrix transposed */
   mat transpose() const;

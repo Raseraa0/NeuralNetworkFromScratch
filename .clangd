@@ -1,3 +1,31 @@
 CompileFlags:
-  Add: [-I/home/arthur/Documents/Perso/Projets/NeuralNetworkFromScratch/include, -Weverything ]             # treat all files as C++, enable more warnings
-  Compiler: clang++   
+  Add: [
+    -I/home/arthur/Documents/Perso/Projets/NeuralNetworkFromScratch/include,
+    -O3,
+    -flto,
+    -Wall,
+    -Wextra,
+    -Wpedantic,
+    -Werror,
+    -Wshadow,
+    -Wnon-virtual-dtor,
+    -Wreorder,
+    -Wmaybe-uninitialized,
+    -Wunused-variable,
+    -Weverything,
+    -Wno-c++98-compat,
+    -Wno-c++98-compat-pedantic
+  ]
+  # Remove: [-Wno-conversion, -Wno-sign-conversion]
+  Compiler: g++
+
+InlayHints:
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+
+Diagnostics:
+  UnusedIncludes: Strict
+
+Index:
+  Background: Build

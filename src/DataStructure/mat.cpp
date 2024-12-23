@@ -20,16 +20,20 @@ mat::mat(const vector<double>& d) {
   n_cols = 1;
 }
 
-const vector<double>* mat::begin() const { return &data.front(); }
-const vector<double>* mat::end() const { return &data.back() + 1; }
+const vector<vector<double>>::const_iterator mat::begin() const {
+  return data.begin();
+}
+const vector<vector<double>>::const_iterator mat::end() const {
+  return data.end();
+}
 
 size_t mat::get_n_rows() const { return n_rows; }
 
 size_t mat::get_n_cols() const { return n_cols; }
 
-double mat::at(int i, int j) const { return data.at(i).at(j); }
+double mat::at(size_t i, size_t j) const { return data.at(i).at(j); }
 
-double& mat::at(int i, int j) { return data.at(i).at(j); }
+double& mat::at(size_t i, size_t j) { return data.at(i).at(j); }
 
 mat mat::transpose() const {
   vector<vector<double>> trans;

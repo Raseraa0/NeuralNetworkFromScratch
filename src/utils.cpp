@@ -7,5 +7,5 @@ int uti::reverse_int(int i) {
   i3 = (i >> 16) & 255;
   i4 = (i >> 24) & 255;
 
-  return ((int)i1 << 24) + ((int)i2 << 16) + ((int)i3 << 8) + (int)i4;
+  return (static_cast<int>(i1) << 24) + (static_cast<int>(i2) << 16) + (static_cast<int>(i3) << 8) + static_cast<int>(i4);
 }
