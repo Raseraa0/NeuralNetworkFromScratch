@@ -1,4 +1,5 @@
 #include "DataStructure/dataset.h"
+#include <ctime>
 #include <iostream>
 int main() {
   std::string x_train_path = "../data/train-images.idx3-ubyte";
@@ -8,9 +9,9 @@ int main() {
 
   dataset mnist = dataset::load_mnist_dataset(x_train_path, y_train_path,
                                               x_test_path, y_test_path);
-
-std::clog << mnist.get_x_train() << std::endl;
-std::clog << mnist.get_y_train() << std::endl;
-std::clog << mnist.get_x_test() << std::endl;
-std::clog << mnist.get_y_test() << std::endl;
+  mnist = mnist.new_random_split(0.02);
+  std::clog << mnist.get_x_train() << std::endl;
+  std::clog << mnist.get_y_train() << std::endl;
+  std::clog << mnist.get_x_test() << std::endl;
+  std::clog << mnist.get_y_test() << std::endl;
 }

@@ -1,6 +1,8 @@
 #include "DataStructure/mat.h"
 #include "exception.h"
 
+mat::mat() : n_rows(0), n_cols(0) {}
+
 mat::mat(const vector<vector<double>>& d)
     : data(d), n_rows(d.size()), n_cols(d.at(0).size()) {
   for (size_t i = 0; i < n_rows; i++) {
@@ -34,6 +36,10 @@ size_t mat::get_n_cols() const { return n_cols; }
 double mat::at(size_t i, size_t j) const { return data.at(i).at(j); }
 
 double& mat::at(size_t i, size_t j) { return data.at(i).at(j); }
+
+const vector<double>& mat::line_at(size_t i) const{
+  return data.at(i);
+}
 
 mat mat::transpose() const {
   vector<vector<double>> trans;
@@ -95,4 +101,16 @@ mat& mat::operator-=(const mat& other) {
     }
   }
   return *this;
+}
+
+void mat::concatenate_under(const mat& other) {
+  if (other.n_cols != this->n_cols) {
+    throw err::dimension_exception("The number of columns aren't the same",
+                                   this->n_rows, this->n_cols, other.n_rows,
+                                   other.n_cols);
+  }
+  this->n_rows += other.n_rows;
+  for (const auto& line : other.data) {
+    this->data.push_back(line);
+  }
 }

@@ -13,6 +13,9 @@ Class for manipulate 2 dimension matrix
 class mat {
 
 public:
+  /* Constructor for empty matrix */
+  mat();
+
   /* Constructor to build the 2D matrix*/
   mat(const vector<vector<double>>& d);
 
@@ -43,6 +46,9 @@ public:
   /* Return pointer to set the corresponding element in the matrix */
   double& at(size_t i, size_t j);
 
+
+  const vector<double>& line_at(size_t i) const;
+
   /* Return the matrix transposed */
   mat transpose() const;
 
@@ -61,6 +67,9 @@ public:
   /* Overload of the -= operator */
   mat& operator-=(const mat& other);
 
+  /* Concatenate the given matrix under the current matrix */
+  void concatenate_under(const mat& other);
+
 private:
   /* All elements of the matrix */
   vector<vector<double>> data;
@@ -72,7 +81,10 @@ private:
   size_t n_cols;
 };
 
-/* Overload operator for << (print to the output) */
+/*
+Overload operator for << (print to the output)
+There is a limite for not printing the whole matrix
+*/
 inline std::ostream& operator<<(std::ostream& out, const mat& m) {
 
   size_t max_print_size = 3;
