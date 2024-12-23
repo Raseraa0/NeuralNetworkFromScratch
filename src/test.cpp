@@ -29,8 +29,6 @@ int main() {
 
   matrix.at(2, 2) = 100;
 
-  
-
   std::clog << matrix - matrix << std::endl;
 
   return 0;

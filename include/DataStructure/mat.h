@@ -1,7 +1,6 @@
 #ifndef MAT_H
 #define MAT_H
 
-#include <iterator>
 #include <ostream>
 #include <vector>
 
@@ -46,6 +45,7 @@ public:
   /* Return the matrix transposed */
   mat transpose() const;
 
+  /* Checking the dimension of the given matrix is the same */
   void check_dimension(const mat& other) const;
 
   /* Return the dot product with the given matrix */
@@ -84,6 +84,7 @@ inline std::ostream& operator<<(std::ostream& out, const mat& m) {
   return out;
 }
 
+/* Overload operator for + */
 inline mat operator+(const mat& m, const mat& n) {
   m.check_dimension(n);
   vector<vector<double>> res;
@@ -95,10 +96,9 @@ inline mat operator+(const mat& m, const mat& n) {
     res.push_back(line);
   }
   return res;
-
-
 }
 
+/* Overload operator for - */
 inline mat operator-(const mat& m, const mat& n) {
   m.check_dimension(n);
   vector<vector<double>> res;
@@ -111,4 +111,5 @@ inline mat operator-(const mat& m, const mat& n) {
   }
   return res;
 }
+
 #endif // !MAT_H

@@ -27,6 +27,7 @@ protected:
   /* Opened stream for reading the binay file */
   std::ifstream file;
 
+  /* Path of the file we are manipulating */
   std::string path;
 
   /* Magic number, to be sur we are on the right file */
