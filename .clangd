@@ -1,22 +1,18 @@
 CompileFlags:
   Add: [
     -I/home/arthur/Documents/Perso/Projets/NeuralNetworkFromScratch/include,
-    -O3,
-    -flto,
+    # -O3,
+    # -flto,
     -Wall,
     -Wextra,
     -Wpedantic,
-    -Werror,
+    # -Werror,
     -Wshadow,
     -Wnon-virtual-dtor,
     -Wreorder,
     -Wmaybe-uninitialized,
     -Wunused-variable,
-    -Weverything,
-    -Wno-c++98-compat,
-    -Wno-c++98-compat-pedantic
   ]
-  # Remove: [-Wno-conversion, -Wno-sign-conversion]
   Compiler: g++
 
 InlayHints:
