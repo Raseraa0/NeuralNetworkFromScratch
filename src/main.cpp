@@ -1,21 +1,16 @@
-#include "Manipulator/image_manipulator.h"
-#include "Manipulator/label_manipulator.h"
+#include "DataStructure/dataset.h"
 #include <iostream>
-
 int main() {
-  image_manip image("../data/t10k-images.idx3-ubyte");
-  label_manip label("../data/t10k-labels.idx1-ubyte");
+  std::string x_train_path = "../data/train-images.idx3-ubyte";
+  std::string y_train_path = "../data/train-labels.idx1-ubyte";
+  std::string x_test_path = "../data/t10k-images.idx3-ubyte";
+  std::string y_test_path = "../data/t10k-labels.idx1-ubyte";
 
-  image.print_info();
-  std::clog << "" << std::endl;
-  label.print_info();
-  std::clog << "" << std::endl;
+  dataset mnist = dataset::load_mnist_dataset(x_train_path, y_train_path,
+                                              x_test_path, y_test_path);
 
-
-  for (int i = 0; i < 69; i++) {
-    label.next_label();
-  }
-  std::clog << label.next_label() << std::endl;
-
-  image.print_image(69);
+std::clog << mnist.get_x_train() << std::endl;
+std::clog << mnist.get_y_train() << std::endl;
+std::clog << mnist.get_x_test() << std::endl;
+std::clog << mnist.get_y_test() << std::endl;
 }

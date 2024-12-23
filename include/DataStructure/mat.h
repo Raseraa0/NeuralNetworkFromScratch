@@ -74,13 +74,31 @@ private:
 
 /* Overload operator for << (print to the output) */
 inline std::ostream& operator<<(std::ostream& out, const mat& m) {
+
+  size_t max_print_size = 3;
+
   out << "2DMatrix: (" << m.get_n_rows() << ":" << m.get_n_cols() << ")"
       << std::endl;
-  for (const auto& line : m) {
-    for (const auto& elem : line) {
-      out << elem << "\t";
+
+  for (size_t i = 0; i < m.get_n_rows(); i++) {
+    if (i < max_print_size) {
+
+      for (size_t j = 0; j < m.get_n_cols(); j++) {
+        if (j < max_print_size) {
+          out << m.at(i, j) << "\t";
+        } else {
+          out << "..\t";
+          break;
+        }
+      }
+      out << std::endl;
+    } else {
+      for (size_t j = 0; j < m.get_n_cols() && j < max_print_size; j++) {
+        out << "..\t";
+      }
+      out << std::endl;
+      break;
     }
-    out << std::endl;
   }
   return out;
 }
